@@ -29,7 +29,7 @@
   - Takes the changes made in one branch of a repository and merges them into another to combine the work history
   - `git merge nameofbranch`
 - pull
-  - Combines both fetch and merge commans
+  - Combines both fetch and merge commands
   - First it will fetch the files from the repository then automatically merge them into the branch
   - `git pull`
 - branch
@@ -44,11 +44,22 @@
 ## git files & folders
 
 - .git folder
+  - Stores all the neccesary information to run your git repository
+  - Things like commit information, logs and references are stored in there
+  - Branch and tracking information is also stored
 - .gitignore file
+  - Used to specify certain files that you want to have on your local system in the repository location but do not want git to track
 - ~~.git/hooks~~
 
 ## GitHub
 
 - Pull requests
+  - A request sent to the the main git repository when work that has been done on a seperate branch has been completed
+  - The request can be accepted or denied to be merged into the main branch of the repository
+  - They also allow for discussions to be made about the work before it is merged
 - SSH authentication to repositories
+  - A secure and passwordless connection between GitHub and a remote system
+  - Uses SSH keys to provide authentication
+  - A private key is placed on the local system and a public key is placed onto GitHub
+  - When the connection is attempted it will make sure that the keys are the correct ones for each other to authenticate
 - ~~Actions~~

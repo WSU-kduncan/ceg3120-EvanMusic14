@@ -24,9 +24,6 @@ async def on_ready():
         f'{guild.name}(id: {guild.id})'
     )
 
-    members = '\n - '.join([member.name for member in guild.members])
-    print(f'Guild Members:\n - {members}')
-
 @client.event
 async def on_message(message):
     if message.author == client.user:

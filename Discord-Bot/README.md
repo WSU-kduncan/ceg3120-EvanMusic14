@@ -35,3 +35,18 @@
     - ![Screenshot](./Screenshots/case3.png)
 
 ## Research
+- Paying a company to host a server full time server
+    - Companies like Amazon, Google, and IBM all offer paid server hosting
+    - All one has to do is pay for the server and deploy the bot on the server
+    - The bot will be up and running 24/7
+- Running a dedicated server on someone elses systems the free way (maybe cheating way)
+    - Websites like replit and Heroku allow code/proccess building to happen fully in the cloud
+    - A bot can be deployed here just the same way that it would on a paid 24/7 server, kinda...
+    - These will shut down after a certain period of not having any requests sent to them
+    - There are two ways of keeping them alive
+        - Add a background task that is constantly doing something
+        - Setup `Uptime Robot` that will ping the server on an interval to keep it alive
+- Setup a system at home to stay running constatnly
+    - This can be done on almost any machine as long as it stays up 24/7
+    - The cheapest and easiest way to do something like this would be to get a raspberry pi
+    - A super lightweight server like this is what the respberry pi strives at doing

@@ -49,4 +49,4 @@
 - Setup a system at home to stay running constatnly
     - This can be done on almost any machine as long as it stays up 24/7
     - The cheapest and easiest way to do something like this would be to get a raspberry pi
-    - A super lightweight server like this is what the respberry pi strives at doing
+    - A super lightweight server like this is what the raspberry pi strives at doing

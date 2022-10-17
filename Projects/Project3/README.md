@@ -28,5 +28,5 @@
         - apt-get install -y \\ \
               git \\ \
               python3 \\ \
-              python3-pip \\ && \
+              python3-pip && \\ \
             hostnamectl set-hostname MUSIC-UBUNTU

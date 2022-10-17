@@ -100,7 +100,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: '22'
           ToPort: '22'
-          CidrIp: 10.0.0.0/24
+          CidrIp: 10.0.0.0/24  # Internal networks
   PublicUbuntuInstance:
     Type: 'AWS::EC2::Instance'
     DependsOn: AttachGateway
@@ -138,6 +138,6 @@ Resources:
               python3-pip \
               htop \
               sl && \
-            sudo hostnamectl set-hostname MUSIC-UBUNTU && \
+            hostnamectl set-hostname MUSIC-UBUNTU && \
             echo "This is from the CF template" > /home/ubuntu/hello.txt && \
             reboot

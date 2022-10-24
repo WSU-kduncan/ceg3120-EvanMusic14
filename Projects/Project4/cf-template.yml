@@ -165,7 +165,7 @@ Resources:
       Tags:
         - Key: Application
           Value: !Ref 'AWS::StackId'
-        - Key: Name
+        - Key: Name - hostnamectl
           Value: proxy
       NetworkInterfaces:
         - GroupSet:
@@ -216,7 +216,48 @@ Resources:
             #!/bin/bash -xe
             apt-get update && \
             # TODO need to install apache or nginx
-            apt-get install -y git && \
-            # TODO give it a hostname - hostnamectl  && \
+            apt-get install -y \
+            git \
+            apache2 && \
+            # TODO give it a hostname  
+            hostnamectl set-hostname Serv1 && \
             reboot
-# TODO: create another webserver instance attached to the private subnet
+  # TODO: create another webserver instance attached to the private subnet
+  WebServ2Instance:
+      Type: 'AWS::EC2::Instance'
+      DependsOn: NATGateway
+      Properties:
+        ImageId: !FindInMap 
+          - AWSRegionUbuntu
+          - !Ref 'AWS::Region'
+          - !FindInMap 
+            - AWSInstanceType2Arch
+            - t2.micro
+            - Arch
+        InstanceType: t2.micro
+        KeyName: !Ref KeyName
+        Tags:
+          - Key: Application
+            Value: !Ref 'AWS::StackId'
+          - Key: Name
+            Value: webserv2
+        NetworkInterfaces:
+          - GroupSet:
+              - !Ref SecurityGroup
+            AssociatePublicIpAddress: 'false'
+            DeviceIndex: '0'
+            DeleteOnTermination: 'true'
+            SubnetId: !Ref PrivateSubnet
+            PrivateIpAddress: 10.0.1.11 # TODO make sure unique to the instance
+        UserData:
+          Fn::Base64:
+            !Sub |
+              #!/bin/bash -xe
+              apt-get update && \
+              # TODO need to install apache or nginx
+              apt-get install -y \
+              git \
+              apache2 && \
+              # TODO give it a hostname
+              hostnamectl set-hostname Serv2 && \
+              reboot

@@ -146,6 +146,10 @@ Resources:
           FromPort: '80'
           ToPort: '80'
           CidrIp: 0.0.0.0/0 # Access website from anywhere
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 10.0.0.0/16 
       Tags: 
         - Key: Name
           Value: P4-sg
@@ -165,7 +169,7 @@ Resources:
       Tags:
         - Key: Application
           Value: !Ref 'AWS::StackId'
-        - Key: Name - hostnamectl
+        - Key: Name
           Value: proxy
       NetworkInterfaces:
         - GroupSet:
